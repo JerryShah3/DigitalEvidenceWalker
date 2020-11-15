@@ -40,6 +40,7 @@ echo "17. Investigate Listening Sockets"
 echo "18. Calculate File System Status"
 echo "19. Extract Information On Hardware Configuration"
 echo "20. Find The System Passwords"
+sleep 3
 echo "21. Find Sensitive Words From a File"
 echo "22. Find Strings From a File"
 echo "23. Display Contents of Overall File Header of Executable File"
