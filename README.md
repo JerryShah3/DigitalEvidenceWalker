@@ -1,6 +1,6 @@
 # Digital Evidence Walker - Automated Forensics Tool
 
-There are tools available to find the evidences but they have certain drawbacks. Every tool cannot do everything so to overcome that drawback I have developed this automated tool. It has 43 different modules for finding evidences.
+There are tools available to find the evidences but they have certain drawbacks. Every tool cannot do everything so to overcome that drawback I have developed this automated tool and it is CLI based. It has 43 different modules for finding evidences.
 <br><br>
 <b>Some Different Features :</b>
 <br>
