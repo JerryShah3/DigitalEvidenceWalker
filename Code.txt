@@ -1,0 +1,877 @@
+echo "                                  * * * * * * * * * * * * * * * * * * *"
+echo "                                  * --------------------------------- *"
+echo "                                  * Starting Digital Evidence Walker  *"
+echo "                                  * --------------------------------- *"
+echo "                                  * * * * * * * * * * * * * * * * * * * "
+echo "                                 *    BY                               *"
+echo "                                *           Jerry - Shrey Shah          *"
+echo "                               *                                         *"
+echo "                              *                    From                   *" 
+echo "                             *                                             *"
+echo "                            *    National Forensics Sciences University     *"
+echo "                           *                                                 *"
+echo "                          * * * * * * * * * * * * * * * * * * * * * * * * * * *"
+
+
+sleep 5
+
+echo ""
+echo ""
+echo ""
+
+echo "0. Exit"
+echo "1. Calculate Md5 Hash"
+echo "2. Calculate SHA1 Hash"
+echo "3. Calculate SHA256 Hash"
+echo "4. Calculate All Hashes"
+echo "5. Data Recovery in binary format"
+echo "6. Recover Images"
+echo "7. Get Index number of a File "
+echo "8. Hexdump Calculation"
+echo "9. Calculate File Entropy"
+echo "10. Check Modifications"
+echo "11. File Carving using Bulk Extractor"
+echo "12. Calculate Tiger Hash"
+echo "13. Calculate Whirlpool Hash"
+echo "14. Check Image Metadata"
+echo "15. Hash Identifier"
+echo "16. Check all the current Processes"
+echo "17. Investigate Listening Sockets"
+echo "18. Calculate File System Status"
+echo "19. Extract Information On Hardware Configuration"
+echo "20. Find The System Passwords"
+echo "21. Find Sensitive Words From a File"
+echo "22. Find Strings From a File"
+echo "23. Display Contents of Overall File Header of Executable File"
+echo "24. Display Object Format Specific File Header Contents of Executable File"
+echo "25. Display Contents of Section Headers of Executable File"
+echo "26. Display Assembler Contents of Executable Sections of Executable File"
+echo "27. Display Debug Information of Executable File"
+echo "28. Display Contents of Symbol Table of Executable File"
+echo "29. Display Contents of Dynamic Symbol Tables of Executable File"
+echo "30. Display Dynamic Relocation Entries of Executable File"
+echo "31. Calculate File System Disk Space Usage"
+echo "32. Identify Information For The Memory Image File"
+echo "33. Print All Running Processes By Following The EPROCESS Lists From a Memory File"
+echo "34. Print Process List As a Tree From a Memory File"
+echo "35. Print Pool Scanner For Process Objects From a Memory File"
+echo "36. Dump All Processes to An Executable File Sample From a Memory File"
+echo "37. Print List of Loaded DLLs For a Particular Process From a Memory File"
+echo "38. Print List of Registry Hives From a Memory File"
+echo "39. Print out Hives From a Memory File"
+echo "40. Print a Registry Key And Its Subkeys And Values From a Memory File"
+echo "41. Print Pool For TCP Connections From a Memory File"
+echo "42. Dumps Registry Files Out To Disk From a Memory File"
+echo "43. Copies a Physical Address Space Out As a Raw DD Image From a Memory File"
+
+echo ""
+echo ""
+
+echo "Enter Your Choice :"
+read choice
+
+MD5hash()
+
+{
+
+echo "Enter path to check MD5 hash :"
+read md5hash
+
+echo "Start Time : `date +%c`"
+echo "------------------------------------------------------------"
+md5sum $md5hash 
+echo "------------------------------------------------------------"
+echo "End Time : `date +%c`"
+
+}
+
+SHA1hash()
+
+{
+
+echo "Enter Path or filename to check SHA1 hash :"
+read sha1hash
+
+echo "------------------------------------------------------------"
+sha1sum $sha1hash
+echo "------------------------------------------------------------"
+
+}
+
+SHA256hash()
+
+{
+
+echo "Enter Path or filename to check SHA256 hash :"
+read sha256hash
+
+echo "------------------------------------------------------------------------"
+sha256sum $sha256hash
+echo "------------------------------------------------------------------------"
+
+}
+
+Allhash()
+
+{
+
+echo "Enter Path or filename to check all the hashes :"
+read allhashes
+
+echo "-----------------------------------------------------------------------"
+echo "MD5 Hash : `md5sum $allhashes`"
+echo "-----------------------------------------------------------------------"
+echo "SHA1 Hash : `sha1sum $allhashes`"
+echo "-----------------------------------------------------------------------"
+echo "SHA256 Hash : `sha256sum $allhashes`"
+echo "-----------------------------------------------------------------------"
+
+}
+
+DataRecovery()
+
+{
+
+echo "Enter Path of recover :"
+read path1
+
+echo "Enter Output path to save recovery :"
+read path2
+
+dc3dd if=$path1 of=$path2
+
+echo "Recovery Completed..!!"
+
+}
+
+RecoverImages()
+
+{
+
+echo "Enter file of .dd extension to recover images"
+read images
+echo "Enter the output Path :"
+read outpath
+
+foremost $images -o $outpath
+
+}
+
+IndexNumber()
+
+{
+
+echo "Enter File name to check index number :"
+read index
+
+ls -i $index
+
+}
+
+HexDump()
+
+{
+
+echo "Enter File or Folder or Drive to calculate hexdump :"
+read hexdump
+
+binwalk -W $hexdump
+
+}
+
+Entropy()
+
+{
+
+echo "Enter File or Folder or Drive to calculate entropy :"
+read entropy
+
+binwalk -E $entropy
+
+}
+
+Modification()
+
+{
+
+echo "Enter file or folder or drive name to check modifications :"
+read modify
+
+stat $modify
+
+}
+
+FileCarving()
+
+{
+
+echo "Enter name for output directory :"
+read outputdir
+
+echo "Enter disk image path to recover the information :"
+read diskimage
+
+bulk_extractor -o $outputdir $diskimage
+
+}
+
+Tiger()
+
+{
+echo "Enter file or folder or drive name or path to check tiger hash :"
+read tiger
+
+echo "------------------------------------------------------------------------"
+hashdeep -c tiger $tiger
+echo "------------------------------------------------------------------------"
+
+}
+
+Whirlpool()
+
+{
+echo "Enter file or folder or drive name or path to check whirlpool hash :"
+read whirlpool
+
+echo "------------------------------------------------------------------------"
+hashdeep -c whirlpool $whirlpool
+echo "------------------------------------------------------------------------"
+
+}
+
+Metadata()
+
+{
+
+echo "----------------NOTE-----------------"
+echo "Install ImageMagick if not installed"
+echo "-------------------------------------"
+echo "Enter an image file (.jpg, .png, etc.) to check metadata :"
+read metadata
+
+identify -verbose $metadata
+
+}
+
+HashIdentifier()
+{
+echo "Enter the hash for identification and press Ctrl + z to exit"
+
+hash-identifier
+
+
+}
+
+Processes()
+{
+
+ps -auxh
+
+}
+
+Sockets()
+{
+
+ss -a
+
+}
+
+FileSystemStatus()
+{
+
+echo "Enter the hard-disk path (eg. /dev/sda) for calculation :"
+read path
+
+stat -f $path
+
+}
+
+HardwareInfo()
+{
+
+lshw
+
+}
+
+SystemPassword()
+
+{
+
+echo "Enter passwd file from /etc/passwd :"
+read pass
+echo "Enter shadow file from /etc/shadow :"
+read shadow
+
+unshadow $pass $shadow > passshad
+
+echo "File passshad has been created to current directory."
+
+echo "Enter passshad file :"
+read passshad
+
+echo "---------------------------NOTE------------------------------"
+echo "Dowload rockyou.txt (password file) if not downloaded"
+echo "-------------------------------------------------------------"
+
+echo "Enter a path for rockyou.txt file :"
+read rockpath
+
+echo "---------------------------------------------"
+echo "Cracking Passwords, it might take some time."
+echo "---------------------------------------------"
+
+
+john $passshad --wordlist=$rockpath 
+
+echo "---------------Cracked Passwords---------------"
+john passshad --show
+echo "-----------------------------------------------"
+
+}
+
+SensitiveWords()
+{
+
+echo "Enter file to find sensitive words :"
+read filename
+
+grep "Admi\|admi\|roo\|too\|Roo\|Too\|Blas\|blas\|Bom\|bom\|kni\|Kni\|Atta\|atta\|hack\|Hack\|gun\|Gun\|Murd\|murd\|kil\|Kil\|ip\|IP\|GMT\|AM\|am\|PM\|pm\|EDT\|Sys\|sys\|pass\|Pass\|.\|bin\|cron\|ini\|kernel\|Kernel\|conf\|Conf\|Host\|host\|secre\|Secre\|OS\|os\|Opera\|opera\|net\|Net\|cloud\|Cloud\|Cryp\|cryp\|Mime\|mime\|memo\|Memo\|serv\|Serv\|bas\|Bas\|Shel\|shel" $filename
+
+}
+
+FindStrings()
+{
+
+echo "Enter Filename to find strings :"
+read stringname
+
+strings $stringname
+
+}
+
+FileHeader()
+{
+
+echo "-----------------Only Executable Files-----------------"
+echo "Example: PE32+ executable OR ELF 64-bit LSB executable"
+echo "-------------------------------------------------------"
+echo "Enter an executable file :"
+read exefile1
+
+objdump -f $exefile1
+
+}
+
+ObjectFormat()
+{
+echo "-----------------Only Executable Files-----------------"
+echo "Example: PE32+ executable OR ELF 64-bit LSB executable"
+echo "-------------------------------------------------------"
+echo "Enter an executable file :"
+read exefile2
+
+objdump -p $exefile2
+
+
+}
+
+SectionHeaders()
+{
+
+echo "-----------------Only Executable Files-----------------"
+echo "Example: PE32+ executable OR ELF 64-bit LSB executable"
+echo "-------------------------------------------------------"
+echo "Enter an executable file :"
+read exefile3
+
+objdump -h $exefile3
+
+}
+
+AssemblerContents()
+{
+echo "-----------------Only Executable Files-----------------"
+echo "Example: PE32+ executable OR ELF 64-bit LSB executable"
+echo "-------------------------------------------------------"
+echo "Enter an executable file :"
+read exefile4
+
+objdump -d $exefile4
+
+}
+
+DebugInfo()
+{
+echo "-----------------Only Executable Files-----------------"
+echo "Example: PE32+ executable OR ELF 64-bit LSB executable"
+echo "-------------------------------------------------------"
+echo "Enter an executable file :"
+read exefile5
+
+objdump -g $exefile5
+
+}
+
+SymbolTable()
+{
+echo "-----------------Only Executable Files-----------------"
+echo "Example: PE32+ executable OR ELF 64-bit LSB executable"
+echo "-------------------------------------------------------"
+echo "Enter an executable file :"
+read exefile6
+
+objdump -t $exefile6
+
+}
+
+DynamicSymbol()
+{
+echo "-----------------Only Executable Files-----------------"
+echo "Example: PE32+ executable OR ELF 64-bit LSB executable"
+echo "-------------------------------------------------------"
+echo "Enter an executable file :"
+read exefile7
+
+objdump -T $exefile7
+
+}
+
+DynamicRelocation()
+{
+echo "-----------------Only Executable Files-----------------"
+echo "Example: PE32+ executable OR ELF 64-bit LSB executable"
+echo "-------------------------------------------------------"
+echo "Enter an executable file :"
+read exefile8
+
+objdump -R $exefile8
+
+}
+
+DiskSpace()
+{
+
+df -a
+
+}
+
+MemoryImageInfo()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find its imageinfo :"
+read imagefile1
+
+volatility -f $imagefile1 imageinfo
+}
+
+MemoryProcessList()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile2
+
+volatility -f $imagefile2 pslist
+
+}
+
+MemoryProcessTree()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile3
+
+volatility -f $imagefile3 pstree
+
+}
+
+MemoryProcessObjects()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile4
+
+volatility -f $imagefile4 psscan
+
+}
+
+MemoryProcessDump()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile5
+echo "Enter directory name or directory file :"
+read dirname
+
+volatility -f $imagefile5 procdump --dump-dir $dirname
+
+}
+
+MemoryDLLList()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile6
+echo "Enter Process ID :"
+read pid
+
+volatility -f $imagefile6 dlllist -p $pid
+
+}
+
+MemoryHiveList()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile7
+
+volatility -f $imagefile7 hivelist
+
+}
+
+MemoryHiveDump()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile8
+echo "----------------------"
+echo "Example : 0xe1544008"
+echo "----------------------"
+echo "Enter Offset :"
+read offset
+
+volatility -f $imagefile8 hivedump -o $offset
+
+}
+
+MemoryPrintKey()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile9
+
+volatility -f $imagefile9 printkey
+
+}
+
+MemoryTCPConnection()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile10
+
+volatility -f $imagefile10 connscan
+
+}
+
+MemoryDumpRegistry()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile11
+echo "----------------------"
+echo "Example : 0xe1544008"
+echo "----------------------"
+echo "Enter Offset :"
+read offset
+echo "Enter directory name or directory path :"
+read dirname2
+
+volatility -f $imagefile11 dumpregistry -o $offset --dump-dir $dirname2
+
+}
+
+MemoryImageCopy()
+{
+echo "----------------------------------------"
+echo "Only .vmem extension files are allowed"
+echo "----------------------------------------"
+
+echo "Enter a filename of .vmem extension to find running processes :"
+read imagefile12
+echo "Enter a file name to save it as raw DD image :"
+read filename3
+
+volatility imagecopy -f $imagefile12 -O $filename3.raw
+
+}
+
+
+Exiting()
+{
+
+echo ""
+echo ""
+
+echo "                                   * * * * * * * * * * * * * * * * * * * * * *"
+echo "                                   *                                         *"
+echo "                                   * Exiting, thank you for using this tool. *"
+echo "                                   *                                         *"
+echo "                                   * * * * * * * * * * * * * * * * * * * * * *"
+
+sleep 3
+
+exit 0
+
+}
+
+if [ $choice == 1 ]
+then
+
+MD5hash
+
+elif [ $choice == 2 ]
+then
+
+SHA1hash
+
+elif [ $choice == 3 ]
+then
+
+SHA256hash
+
+elif [ $choice == 4 ]
+then
+
+Allhash
+
+elif [ $choice == 5 ]
+then
+
+DataRecovery
+
+elif [ $choice == 6 ]
+then
+
+RecoverImages
+
+elif [ $choice == 7 ]
+then
+
+IndexNumber
+
+elif [ $choice == 8 ]
+then
+
+HexDump
+
+elif [ $choice == 9 ]
+then
+
+Entropy
+
+elif [ $choice == 10 ]
+then
+
+Modification
+
+elif [ $choice == 11 ]
+then
+
+FileCarving
+
+elif [ $choice == 12 ]
+then
+
+Tiger
+
+elif [ $choice == 13 ]
+then
+
+Whirlpool
+
+elif [ $choice == 14 ]
+then
+
+Metadata
+
+elif [ $choice == 15 ]
+then
+
+HashIdentifier
+
+elif [ $choice == 16 ]
+then
+
+Processes
+
+elif [ $choice == 17 ]
+then
+
+Sockets
+
+elif [ $choice == 18 ]
+then
+
+FileSystemStatus
+
+elif [ $choice == 19 ]
+then
+
+HardwareInfo
+
+elif [ $choice == 20 ]
+then
+
+SystemPassword
+
+elif [ $choice == 21 ]
+then
+
+SensitiveWords
+
+elif [ $choice == 22 ]
+then
+
+FindStrings
+
+elif [ $choice == 23 ]
+then
+
+FileHeader
+
+elif [ $choice == 24 ]
+then
+
+ObjectFormat
+
+elif [ $choice == 25 ]
+then
+
+SectionHeaders
+
+elif [ $choice == 26 ]
+then
+
+AssemblerContents
+
+elif [ $choice == 27 ]
+then 
+
+DebugInfo
+
+elif [ $choice == 28 ]
+then
+
+SymbolTable
+
+elif [ $choice == 29 ]
+then
+
+DynamicSymbol
+
+elif [ $choice == 30 ]
+then
+
+DynamicRelocation
+
+elif [ $choice == 31 ]
+then
+
+DiskSpace
+
+elif [ $choice == 32 ]
+then
+
+MemoryImageInfo
+
+elif [ $choice == 33 ]
+then
+
+MemoryProcessList
+
+elif [ $choice == 34 ]
+then
+
+MemoryProcessTree
+
+elif [ $choice == 35 ]
+then
+
+MemoryProcessObjects
+
+elif [ $choice == 36 ]
+then
+
+MemoryProcessDump
+
+elif [ $choice == 37 ]
+then
+
+MemoryDLLList
+
+elif [ $choice == 38 ]
+then
+
+MemoryHiveList
+
+elif [ $choice == 39 ]
+then
+
+MemoryHiveDump
+
+elif [ $choice == 40 ]
+then
+
+MemoryPrintKey
+
+elif [ $choice == 41 ]
+then
+
+MemoryTCPConnection
+
+elif [ $choice == 42 ]
+then
+
+MemoryDumpRegistry
+
+elif [ $choice == 43 ]
+then
+
+MemoryImageCopy
+
+elif [ $choice == 0 ]
+then
+
+Exiting
+
+else 
+
+echo "Wrong Choice"
+fi
+
+
+
+
