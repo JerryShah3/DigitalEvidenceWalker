@@ -78,4 +78,9 @@ Example : sudo apt-get install imagemagick <br><br>
  1. Go to terminal and type the command <b><i>git clone https://github.com/ShreyJerry333/DigitalEvidenceWalker.git </b></i><br>
  2. After Downloading type the command <b><i>cd DigitalEvidenceWalker</b></i><br>
  3. Run the command <b><i>chmod +x DigitalEvidenceWalker</b></i><br>
- 4. Then type <b><i>./DigitalEvidenceWalker</b></i> and press enter
+ 4. Then type <b><i>./DigitalEvidenceWalker</b></i> and press 
+ 
+ <br><br><h1>
+ <b>Thank You :)</b><br>
+ <b>Instagram : jerry._.3<b><br>
+  </h1>
