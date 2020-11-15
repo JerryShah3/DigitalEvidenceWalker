@@ -72,10 +72,8 @@ Example : sudo apt-get install imagemagick <br><br>
 12. Fedora Security Spin <br>
 13. ArchStrike
 </h6>
-<br><br>
-
+<br>
 <b>How to run :</b>
-
 <br>
  1. Go to terminal and type the command <b><i>git clone https://github.com/ShreyJerry333/DigitalEvidenceWalker.git </b></i><br>
  2. After Downloading type the command cd DigitalEvidenceWalker <br>
