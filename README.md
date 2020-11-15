@@ -81,6 +81,6 @@ Example : sudo apt-get install imagemagick <br><br>
  4. Then type <b><i>./DigitalEvidenceWalker</b></i> and press 
  
  <br><br><h1>
- <b>Thank You :)</b><br>
+ <b>Thank You :dizzy_face:</b><br>
  <b>Instagram : jerry._.3<b><br>
   </h1>
