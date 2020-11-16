@@ -1,6 +1,6 @@
 # Digital Evidence Walker - Automated Forensics Tool
 
-There are tools available to find the evidences but they have certain drawbacks. Every tool cannot do everything so to overcome that drawback I have developed this automated tool and it is CLI based. It has 43 different modules for finding evidences.
+There are tools available to find the evidences but they have certain drawbacks. Every tool cannot do everything so to overcome that drawback. I have developed this automated tool and it is CLI based. It has 43 different modules for finding evidences.
 <br><br>
 <b>Some Different Features :</b>
 <br>
@@ -15,11 +15,11 @@ There are tools available to find the evidences but they have certain drawbacks.
 8. Checking Disk Space <br>
 </i></h6><br>
 
-The tool has been developed using shell script because it allows us to program commands in chains and have the system execute them as a scripted event, just like batch files. They also allow for far more useful functions, such as command substitution.
+The tool has been developed using shell script because it allows us to program commands in chains and have the system execute them as a scripted event, just like batch files. They also allow far more useful functions, such as command substitution.
 <br><br>
 <b>Tools and Technologies :</b>
 <br><br>
-I have used many pre-installed commands of kali linux which makes it easy to use. As kali linux is mainly used for Penetration Testing and Digital Forensics, this tool is compatible with many Debian Systems. There are many things that I have added/downloaded manually which helps in digital forensics investigation, thus making it easy for investigators.
+I have used many pre-installed commands of kali linux which makes it easy to use. As kali linux is mainly used for Penetration Testing and Digital Forensics, this tool is compatible with many Debian Flavours. There are many things that I have added/downloaded manually which helps in digital forensics investigation, thus making it easy for investigators.
 <br><br>
 <b>Downloaded/Added Technologies :</b>
 <br>
@@ -78,7 +78,7 @@ Example : sudo apt-get install imagemagick <br><br>
  1. Go to terminal and type the command <b><i>git clone https://github.com/ShreyJerry333/DigitalEvidenceWalker.git </b></i><br>
  2. After Downloading type the command <b><i>cd DigitalEvidenceWalker</b></i><br>
  3. Run the command <b><i>chmod +x DigitalEvidenceWalker</b></i><br>
- 4. Then type <b><i>./DigitalEvidenceWalker</b></i> and press 
+ 4. Then type <b><i>./DigitalEvidenceWalker</b></i> and press enter
  
  <br><br><h1>
  <b>Thank You :dizzy_face:</b><br>
