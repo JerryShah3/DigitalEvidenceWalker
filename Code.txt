@@ -1,3 +1,23 @@
+#   This Source Code Form is subject to the terms of the Mozilla Public
+# * License, v. 2.0. If a copy of the MPL was not distributed with this
+# * file, You can obtain one at https://mozilla.org/MPL/2.0/. 
+
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+
+#<!-- This Source Code Form is subject to the terms of the Mozilla Public
+#   - License, v. 2.0. If a copy of the MPL was not distributed with this
+#   - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+
+
+#This Source Code Form is subject to the terms of the Mozilla Public
+#License, v. 2.0. If a copy of the MPL was not distributed with this
+#file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+
 echo "                                  * * * * * * * * * * * * * * * * * * *"
 echo "                                  * --------------------------------- *"
 echo "                                  * Starting Digital Evidence Walker  *"
@@ -8,7 +28,7 @@ echo "                                *           Jerry - Shrey Shah          *"
 echo "                               *                                         *"
 echo "                              *                    From                   *" 
 echo "                             *                                             *"
-echo "                            *    National Forensics Sciences University     *"
+echo "                            *    Gujarat Forensics Sciences University      *"
 echo "                           *                                                 *"
 echo "                          * * * * * * * * * * * * * * * * * * * * * * * * * * *"
 
@@ -20,50 +40,50 @@ echo ""
 echo ""
 
 echo "0. Exit"
-echo "1. Calculate Md5 Hash"
-echo "2. Calculate SHA1 Hash"
-echo "3. Calculate SHA256 Hash"
-echo "4. Calculate All Hashes"
-echo "5. Data Recovery in binary format"
+echo "1. MD5"
+echo "2. SHA1"
+echo "3. SHA256"
+echo "4. All Hashes"
+echo "5. Data Recovery - Binary Format"
 echo "6. Recover Images"
-echo "7. Get Index number of a File "
-echo "8. Hexdump Calculation"
-echo "9. Calculate File Entropy"
+echo "7. Index of a File"
+echo "8. Hexdump"
+echo "9. File Entropy"
 echo "10. Check Modifications"
-echo "11. File Carving using Bulk Extractor"
-echo "12. Calculate Tiger Hash"
-echo "13. Calculate Whirlpool Hash"
-echo "14. Check Image Metadata"
+echo "11. File Carving - Bulk Extractor"
+echo "12. Tiger Hash"
+echo "13. Whirlpool Hash"
+echo "14. Image Metadata"
 echo "15. Hash Identifier"
-echo "16. Check all the current Processes"
-echo "17. Investigate Listening Sockets"
-echo "18. Calculate File System Status"
-echo "19. Extract Information On Hardware Configuration"
-echo "20. Find The System Passwords"
+echo "16. Ongoing Processes"
+echo "17. Listening Sockets"
+echo "18. File System Status"
+echo "19. Hardware Configuration"
+echo "20. System Passwords"
 sleep 3
-echo "21. Find Sensitive Words From a File"
-echo "22. Find Strings From a File"
-echo "23. Display Contents of Overall File Header of Executable File"
-echo "24. Display Object Format Specific File Header Contents of Executable File"
-echo "25. Display Contents of Section Headers of Executable File"
-echo "26. Display Assembler Contents of Executable Sections of Executable File"
-echo "27. Display Debug Information of Executable File"
-echo "28. Display Contents of Symbol Table of Executable File"
-echo "29. Display Contents of Dynamic Symbol Tables of Executable File"
-echo "30. Display Dynamic Relocation Entries of Executable File"
-echo "31. Calculate File System Disk Space Usage"
-echo "32. Identify Information For The Memory Image File"
-echo "33. Print All Running Processes By Following The EPROCESS Lists From a Memory File"
-echo "34. Print Process List As a Tree From a Memory File"
-echo "35. Print Pool Scanner For Process Objects From a Memory File"
-echo "36. Dump All Processes to An Executable File Sample From a Memory File"
-echo "37. Print List of Loaded DLLs For a Particular Process From a Memory File"
-echo "38. Print List of Registry Hives From a Memory File"
-echo "39. Print out Hives From a Memory File"
-echo "40. Print a Registry Key And Its Subkeys And Values From a Memory File"
-echo "41. Print Pool For TCP Connections From a Memory File"
-echo "42. Dumps Registry Files Out To Disk From a Memory File"
-echo "43. Copies a Physical Address Space Out As a Raw DD Image From a Memory File"
+echo "21. Sensitive Words From a File"
+echo "22. Strings From a File"
+echo "23. File Header of Executable File"
+echo "24. Object Format Specific File Header Contents"
+echo "25. Contents of Section Headers"
+echo "26. Assembler Contents of Executable Sections"
+echo "27. Debug Information"
+echo "28. Contents of Symbol Table"
+echo "29. Contents of Dynamic Symbol Tables"
+echo "30. Dynamic Relocation Entries"
+echo "31. File System Disk Space Usage"
+echo "32. Information For The Memory Image"
+echo "33. Running Processes From The EPROCESS Lists"
+echo "34. Process List - Tree Format"
+echo "35. Pool Scanner For Process Objects"
+echo "36. Dump Processes - Executable File Sample"
+echo "37. Loaded DLLs - Particular Process"
+echo "38. Registry Hives"
+echo "39. Hives"
+echo "40. Registry Key, Subkeys & Values"
+echo "41. Pool For TCP Connections"
+echo "42. Dumps Registry Files - To Disk"
+echo "43. Copy Physical Address Space - Raw DD Image"
 
 echo ""
 echo ""
@@ -139,7 +159,7 @@ read path1
 echo "Enter Output path to save recovery :"
 read path2
 
-dc3dd if=$path1 of=$path2
+sudo dc3dd if=$path1 of=$path2
 
 echo "Recovery Completed..!!"
 
@@ -629,7 +649,6 @@ volatility imagecopy -f $imagefile12 -O $filename3.raw
 
 }
 
-
 Exiting()
 {
 
@@ -863,6 +882,7 @@ then
 
 MemoryImageCopy
 
+
 elif [ $choice == 0 ]
 then
 
@@ -872,6 +892,7 @@ else
 
 echo "Wrong Choice"
 fi
+
 
 
 
