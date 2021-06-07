@@ -18,26 +18,25 @@
 #file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 
-echo "                                  * * * * * * * * * * * * * * * * * * *"
-echo "                                  * --------------------------------- *"
-echo "                                  * Starting Digital Evidence Walker  *"
-echo "                                  * --------------------------------- *"
-echo "                                  * * * * * * * * * * * * * * * * * * * "
-echo "                                 *    BY                               *"
-echo "                                *           Jerry - Shrey Shah          *"
-echo "                               *                                         *"
-echo "                              *                    From                   *" 
-echo "                             *                                             *"
-echo "                            *    Gujarat Forensics Sciences University      *"
-echo "                           *                                                 *"
-echo "                          * * * * * * * * * * * * * * * * * * * * * * * * * * *"
+#   This Source Code Form is subject to the terms of the Mozilla Public
+# * License, v. 2.0. If a copy of the MPL was not distributed with this
+# * file, You can obtain one at https://mozilla.org/MPL/2.0/. 
 
 
-sleep 5
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-echo ""
-echo ""
-echo ""
+
+#<!-- This Source Code Form is subject to the terms of the Mozilla Public
+#   - License, v. 2.0. If a copy of the MPL was not distributed with this
+#   - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+
+
+#This Source Code Form is subject to the terms of the Mozilla Public
+#License, v. 2.0. If a copy of the MPL was not distributed with this
+#file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 
 echo "0. Exit"
 echo "1. MD5"
@@ -55,35 +54,38 @@ echo "12. Tiger Hash"
 echo "13. Whirlpool Hash"
 echo "14. Image Metadata"
 echo "15. Hash Identifier"
-echo "16. Ongoing Processes"
-echo "17. Listening Sockets"
-echo "18. File System Status"
-echo "19. Hardware Configuration"
-echo "20. System Passwords"
+echo "16. System Passwords"
+echo "17. Sensitive Words From a File"
+echo "18. Strings From a File"
+echo "19. File Header of Executable File"
+echo "20. Object Format Specific File Header Contents"
 sleep 3
-echo "21. Sensitive Words From a File"
-echo "22. Strings From a File"
-echo "23. File Header of Executable File"
-echo "24. Object Format Specific File Header Contents"
-echo "25. Contents of Section Headers"
-echo "26. Assembler Contents of Executable Sections"
-echo "27. Debug Information"
-echo "28. Contents of Symbol Table"
-echo "29. Contents of Dynamic Symbol Tables"
-echo "30. Dynamic Relocation Entries"
-echo "31. File System Disk Space Usage"
-echo "32. Information For The Memory Image"
-echo "33. Running Processes From The EPROCESS Lists"
-echo "34. Process List - Tree Format"
-echo "35. Pool Scanner For Process Objects"
-echo "36. Dump Processes - Executable File Sample"
-echo "37. Loaded DLLs - Particular Process"
-echo "38. Registry Hives"
-echo "39. Hives"
-echo "40. Registry Key, Subkeys & Values"
-echo "41. Pool For TCP Connections"
-echo "42. Dumps Registry Files - To Disk"
-echo "43. Copy Physical Address Space - Raw DD Image"
+echo "21. Contents of Section Headers"
+echo "22. Assembler Contents of Executable Sections"
+echo "23. Debug Information"
+echo "24. Contents of Symbol Table"
+echo "25. Contents of Dynamic Symbol Tables"
+echo "26. Dynamic Relocation Entries"
+echo "27. Information For The Memory Image"
+echo "28. Running Processes From The EPROCESS Lists"
+echo "29. Process List - Tree Format"
+echo "30. Pool Scanner For Process Objects"
+echo "31. Dump Processes - Executable File Sample"
+echo "32. Loaded DLLs - Particular Process"
+echo "33. Registry Hives"
+echo "34. Hives"
+echo "35. Registry Key, Subkeys & Values"
+echo "36. Pool For TCP Connections"
+echo "37. Dumps Registry Files - To Disk"
+echo "38. Copy Physical Address Space - Raw DD Image"
+echo "39. Analyze Malicious PDF"
+echo "40. PDF Statistical Analysis"
+echo "41. PDF Object Hash Identification"
+echo "42. Stegnography Identification"
+echo "43. Audio Stegnography Identification"
+echo "44. PNG Corruption"
+echo "45. Link Library Analysis"
+echo "46. Extract Binary Program Information"
 
 echo ""
 echo ""
@@ -283,37 +285,6 @@ hash-identifier
 
 }
 
-Processes()
-{
-
-ps -auxh
-
-}
-
-Sockets()
-{
-
-ss -a
-
-}
-
-FileSystemStatus()
-{
-
-echo "Enter the hard-disk path (eg. /dev/sda) for calculation :"
-read path
-
-stat -f $path
-
-}
-
-HardwareInfo()
-{
-
-lshw
-
-}
-
 SystemPassword()
 
 {
@@ -356,7 +327,7 @@ SensitiveWords()
 echo "Enter file to find sensitive words :"
 read filename
 
-grep "Admi\|admi\|roo\|too\|Roo\|Too\|Blas\|blas\|Bom\|bom\|kni\|Kni\|Atta\|atta\|hack\|Hack\|gun\|Gun\|Murd\|murd\|kil\|Kil\|ip\|IP\|GMT\|AM\|am\|PM\|pm\|EDT\|Sys\|sys\|pass\|Pass\|.\|bin\|cron\|ini\|kernel\|Kernel\|conf\|Conf\|Host\|host\|secre\|Secre\|OS\|os\|Opera\|opera\|net\|Net\|cloud\|Cloud\|Cryp\|cryp\|Mime\|mime\|memo\|Memo\|serv\|Serv\|bas\|Bas\|Shel\|shel" $filename
+grep "Admi\|admi\|roo\|too\|Roo\|Too\|Blas\|blas\|Bom\|bom\|kni\|Kni\|Atta\|atta\|hack\|Hack\|gun\|Gun\|Murd\|murd\|kil\|Kil\|ip\|IP\|GMT\|AM\|am\|PM\|pm\|EDT\|Sys\|sys\|pass\|Pass\|.\|bin\|cron\|ini\|kernel\|Kernel\|conf\|Conf\|Host\|host\|secre\|Secre\|OS\|os\|Opera\|opera\|net\|Net\|cloud\|Cloud\|Cryp\|cryp\|Mime\|mime\|memo\|Memo\|serv\|Serv\|bas\|Bas\|Shel\|shel\|Database\|database\|data\|Data\|Threat\|threat\|drug\|Drug\|Decry\|decry\|Encry\|encry\|Exploit\|exploit\|bash\|Bash" $filename
 
 }
 
@@ -466,13 +437,6 @@ echo "Enter an executable file :"
 read exefile8
 
 objdump -R $exefile8
-
-}
-
-DiskSpace()
-{
-
-df -a
 
 }
 
@@ -649,6 +613,74 @@ volatility imagecopy -f $imagefile12 -O $filename3.raw
 
 }
 
+MaliciousPDF()
+{
+echo "Enter a PDF file :"
+read pdf
+
+pdfid $pdf
+
+}
+
+PDFStatistics()
+{
+echo "Enter a PDF file :"
+read pdfstats
+
+pdf-parser -a $pdfstats
+}
+
+ObjectHash()
+{
+echo "Enter a PDF file :"
+read objhash
+
+pdf-parser -H $objhash
+}
+
+StegSeek()
+{
+echo "Enter a stegnographed image :"
+read stegimg
+echo "Enter password wordlist :"
+read passlist
+
+stegseek $stegimg $passlist
+}
+
+AudioSteg()
+{
+echo "Enter audio file :"
+read audio
+
+sonic-visualiser $audio
+}
+
+
+PNGCorruption()
+{
+echo "Enter PNG file :"
+read pngcorrupt
+
+pngcheck -v $pngcorrupt
+}
+
+LinkedLibrary()
+{
+echo "Enter an executable file :"
+read linkfile
+
+rabin2 -l $linkfile
+}
+
+BinaryInfo()
+{
+echo "Enter an executable file :"
+read binaryinfo
+
+rabin2 -I $binaryinfo
+}
+
 Exiting()
 {
 
@@ -745,143 +777,157 @@ HashIdentifier
 elif [ $choice == 16 ]
 then
 
-Processes
+SystemPassword
 
 elif [ $choice == 17 ]
 then
 
-Sockets
+SensitiveWords
 
 elif [ $choice == 18 ]
 then
 
-FileSystemStatus
+FindStrings
 
 elif [ $choice == 19 ]
 then
 
-HardwareInfo
+FileHeader
 
 elif [ $choice == 20 ]
 then
 
-SystemPassword
+ObjectFormat
 
 elif [ $choice == 21 ]
 then
 
-SensitiveWords
+SectionHeaders
 
 elif [ $choice == 22 ]
 then
 
-FindStrings
+AssemblerContents
 
 elif [ $choice == 23 ]
 then
 
-FileHeader
+DebugInfo
 
 elif [ $choice == 24 ]
 then
 
-ObjectFormat
+SymbolTable
 
 elif [ $choice == 25 ]
-then
+then 
 
-SectionHeaders
+DynamicSymbol
 
 elif [ $choice == 26 ]
 then
 
-AssemblerContents
-
-elif [ $choice == 27 ]
-then 
-
-DebugInfo
-
-elif [ $choice == 28 ]
-then
-
-SymbolTable
-
-elif [ $choice == 29 ]
-then
-
-DynamicSymbol
-
-elif [ $choice == 30 ]
-then
-
 DynamicRelocation
 
-elif [ $choice == 31 ]
-then
-
-DiskSpace
-
-elif [ $choice == 32 ]
+elif [ $choice == 27 ]
 then
 
 MemoryImageInfo
 
-elif [ $choice == 33 ]
+elif [ $choice == 28 ]
 then
 
 MemoryProcessList
 
-elif [ $choice == 34 ]
+elif [ $choice == 29 ]
 then
 
 MemoryProcessTree
 
-elif [ $choice == 35 ]
+elif [ $choice == 30 ]
 then
 
 MemoryProcessObjects
 
-elif [ $choice == 36 ]
+elif [ $choice == 31 ]
 then
 
 MemoryProcessDump
 
-elif [ $choice == 37 ]
+elif [ $choice == 32 ]
 then
 
 MemoryDLLList
 
-elif [ $choice == 38 ]
+elif [ $choice == 33 ]
 then
 
 MemoryHiveList
 
-elif [ $choice == 39 ]
+elif [ $choice == 34 ]
 then
 
 MemoryHiveDump
 
-elif [ $choice == 40 ]
+elif [ $choice == 35 ]
 then
 
 MemoryPrintKey
 
-elif [ $choice == 41 ]
+elif [ $choice == 36 ]
 then
 
 MemoryTCPConnection
 
-elif [ $choice == 42 ]
+elif [ $choice == 37 ]
 then
 
 MemoryDumpRegistry
 
-elif [ $choice == 43 ]
+elif [ $choice == 38 ]
 then
 
 MemoryImageCopy
 
+elif [ $choice == 39 ]
+then
+
+MaliciousPDF
+
+elif [ $choice == 40 ]
+then
+
+PDFStatistics
+
+elif [ $choice == 41 ]
+then
+
+ObjectHash
+
+elif [ $choice == 42 ]
+then
+
+StegSeek
+
+elif [ $choice == 43 ]
+then
+
+AudioSteg
+
+elif [ $choice == 44 ]
+then
+
+PNGCorruption
+
+elif [ $choice == 45 ]
+then
+
+LinkedLibrary
+
+elif [ $choice == 46 ]
+then
+
+BinaryInfo
 
 elif [ $choice == 0 ]
 then
@@ -892,8 +938,3 @@ else
 
 echo "Wrong Choice"
 fi
-
-
-
-
-
