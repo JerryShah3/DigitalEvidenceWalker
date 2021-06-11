@@ -38,6 +38,26 @@
 #file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 
+#   This Source Code Form is subject to the terms of the Mozilla Public
+# * License, v. 2.0. If a copy of the MPL was not distributed with this
+# * file, You can obtain one at https://mozilla.org/MPL/2.0/. 
+
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+
+#<!-- This Source Code Form is subject to the terms of the Mozilla Public
+#   - License, v. 2.0. If a copy of the MPL was not distributed with this
+#   - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+
+
+#This Source Code Form is subject to the terms of the Mozilla Public
+#License, v. 2.0. If a copy of the MPL was not distributed with this
+#file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+
 echo "0. Exit"
 echo "1. MD5"
 echo "2. SHA1"
@@ -86,6 +106,7 @@ echo "43. Audio Stegnography Identification"
 echo "44. PNG Corruption"
 echo "45. Link Library Analysis"
 echo "46. Extract Binary Program Information"
+echo "47. Hash Decrypt"
 
 echo ""
 echo ""
@@ -313,10 +334,10 @@ echo "Cracking Passwords, it might take some time."
 echo "---------------------------------------------"
 
 
-john $passshad --wordlist=$rockpath 
+sudo john $passshad --wordlist=$rockpath 
 
 echo "---------------Cracked Passwords---------------"
-john passshad --show
+sudo john passshad --show
 echo "-----------------------------------------------"
 
 }
@@ -681,6 +702,26 @@ read binaryinfo
 rabin2 -I $binaryinfo
 }
 
+HashDecrypt()
+{
+echo "------------------------------------------------------------------------------"
+echo "Supported Hashes :"
+echo " "
+sudo john --list=formats
+echo "------------------------------------------------------------------------------"
+echo "Enter hash type in above mentioned format  :"
+read hashtype
+echo "Enter a wordlist file for cracking :"
+read wordfile
+echo "Enter hash file :"
+read hashfile
+
+
+sudo john --format=$hashtype --wordlist=$wordfile $hashfile
+
+sudo john $hashfile --show
+}
+
 Exiting()
 {
 
@@ -929,6 +970,11 @@ then
 
 BinaryInfo
 
+elif [ $choice == 47 ]
+then
+
+HashDecrypt
+
 elif [ $choice == 0 ]
 then
 
@@ -938,8 +984,3 @@ else
 
 echo "Wrong Choice"
 fi
-
-
-
-
-
